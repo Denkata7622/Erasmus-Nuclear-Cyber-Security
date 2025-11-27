@@ -13136,3 +13136,20 @@ body.dark-mode .profile-btn-avocado {
 .body-cyber {
   background-color: #D3F689;
 }*/
+
+/* Timer Logic Styling */
+
+#timerBar{
+  width: 100%;
+  height: 10px;
+  background: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+#timerFill {
+  height: 100%;
+  background-color: #00ADB5;
+  transform-origin: left
+}
