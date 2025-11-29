@@ -12954,65 +12954,6 @@ body.dark-mode #recipe-loading .spinner-border {
   color: var(--dark-border) !important;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #E3F0AF; /* Track color */
-}
-
-::-webkit-scrollbar-thumb {
-  background: #9EDF9C; /* Scroll handle color */
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #75C985; /* Hover color */
-}
-
-body.dark-mode::-webkit-scrollbar-track {
-  background: #27391C;
-}
-
-body.dark-mode::-webkit-scrollbar-thumb {
-  background: #1F7D53;
-  border: 2px solid #27391C;
-}
-
-body.dark-mode::-webkit-scrollbar-thumb:hover {
-  background: #118B50;
-}
-
-/* Modal Scroll Bar Styling */
-/* Light mode (default) */
-#recipe-modal .modal-body::-webkit-scrollbar {
-  width: 10px;
-}
-
-#recipe-modal .modal-body::-webkit-scrollbar-track {
-  background: var(--light-card-bg);
-}
-
-#recipe-modal .modal-body::-webkit-scrollbar-thumb {
-  background: var(--light-border);
-  border: 2px solid var(--light-bg);
-  border-radius: 10px;
-}
-
-/* Dark Mode */
-body.dark-mode #recipe-modal .modal-body::-webkit-scrollbar-track {
-  background: var(--dark-card-bg);
-}
-
-body.dark-mode #recipe-modal .modal-body::-webkit-scrollbar-thumb {
-  background: var(--dark-border);
-  border: 2px solid var(--dark-bg);
-  border-radius: 10px;
-}
-
-
 /* Profile Button Class */
 
 .profile-btn-avocado {
@@ -13117,11 +13058,28 @@ body.dark-mode .profile-btn-avocado {
 .btn-cyber a:hover {color: #00ADB5;}
 .body-cyber {background-color: #0d0d0d; color:#e0e0e0;}
 .card-cyber {background-color:#1a1a1a; border:none; color:#e0e0e0;}
-.card-cyber:hover {transform: scale(1.05); transition:0.3s;}
+.card-cyber:hover {transform: none; transition:none; animation: none;}
 .section-title {color:#00ADB5; margin-bottom:1rem;}
 .map-placeholder {background-color:#222; height:300px; display:flex; justify-content:center; align-items:center; color:#ccc; font-size:1.5rem; margin-bottom:2rem;}
 .line-cyber {
   background-color: #FFC400;
+}
+
+/* Color list bullets in the Glossary with Bootstrap "warning" color */
+
+#Glossary ul li::marker {
+  color: #ffc107; /* Bootstrap .text-warning */
+}
+
+.mermaid .node rect {
+  stroke: #ffc107 !important;
+  fill: #111 !important; /* dark background for cyber look */
+  stroke-width: 2px;
+}
+
+.mermaid .node text {
+  fill: #ffc107 !important;
+  font-weight: bold;
 }
 
 /*.navbar-cyber {

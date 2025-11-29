@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuclear CyberSecurity</title>
+<style>
+  body {
+    background-color: #0d0d0d;
+    color: #ffc107;
+    font-family: monospace;
+    margin: 0;
+    padding: 1rem;
+  }
+  a {
+    color: #ffc107;
+    text-decoration: none;
+  }
+  h1, h2, h3, h4 {
+    border-bottom: 1px solid #ffc107;
+    padding-bottom: 0.2rem;
+  }
+  ul, ol {
+    padding-left: 1.5rem;
+  }
+  footer {
+    border-top: 1px solid #ffc107;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    font-size: 0.85rem;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #ffc107;
+    margin: 2rem 0;
+  }
+  .section {
+    margin-bottom: 2rem;
+  }
+</style>
+</head>
+<body>
+
+<h1>Nuclear Cybersecurity</h1>
+
+<div class="section" id="Introduction">
+  <h2>Introduction</h2>
+  <p>Cybersecurity protects computers and networks from people or software that want to break in, steal data, or make systems fail. In nuclear systems, digital faults can quickly become safety events — loss of cooling, incorrect alarms, or corrupted control logic.</p>
+  <ul>
+    <li>Confidentiality — protect secrets</li>
+    <li>Integrity — ensure commands and data are correct</li>
+    <li>Availability — systems must work when needed</li>
+  </ul>
+</div>
+
+<hr>
+
+<div class="section" id="Operation">
+  <h2>Operation</h2>
+  <p>Core components:</p>
+  <ul>
+    <li>Sensors & actuators: measure/change physical variables</li>
+    <li>PLCs / RTUs / DCS: control systems in real-time</li>
+    <li>HMI / SCADA / Historian: operator interfaces & logs</li>
+    <li>Engineering workstations: design/upload logic</li>
+  </ul>
+  <p>OT protocols often lack authentication/encryption; bridging legacy and modern protocols creates vulnerabilities. Nuclear networks use layered zoning (Purdue/ISA-IEC), DMZs, and data diodes to reduce lateral movement.</p>
+</div>
+
+<hr>
+
+<div class="section" id="Breaches">
+  <h2>Breaches</h2>
+  <ol>
+    <li>Reconnaissance: gather info on networks & personnel</li>
+    <li>Initial access: phishing, vulnerable services, removable media</li>
+    <li>Persistence & lateral movement: backdoors, credentials</li>
+    <li>Manipulate OT: alter PLC logic, sensor readings, alarms</li>
+    <li>Hide tracks: tamper with logs, stealth techniques</li>
+  </ol>
+</div>
+
+<hr>
+
+<div class="section" id="Defence">
+  <h2>Defence</h2>
+  <ul>
+    <li>Segment networks, remove unnecessary IT–OT connections</li>
+    <li>Block autorun and scan removable media</li>
+    <li>Vendor access: MFA, logging, time-limited sessions</li>
+    <li>Offline backups of PLC/DCS logic</li>
+    <li>Whitelisting executables and firmware signing</li>
+    <li>OT-aware IDS/IPS and anomaly detection</li>
+  </ul>
+</div>
+
+<hr>
+
+<div class="section" id="Glossary">
+  <h2>Glossary</h2>
+  <ul>
+    <li><b>Asset Inventory:</b> list of hardware, software, firmware</li>
+    <li><b>Availability:</b> system works when required</li>
+    <li><b>Data Diode:</b> one-way hardware data flow</li>
+    <li><b>Defense-in-Depth:</b> layered technical, procedural, physical controls</li>
+    <li><b>Zero-Trust:</b> no implicit trust; authenticate everything</li>
+  </ul>
+</div>
+
+<hr>
+
+<footer>
+  &copy; 2024 Nuclear Cybersecurity Education — For informational purposes only
+</footer>
+
+</body>
+</html>

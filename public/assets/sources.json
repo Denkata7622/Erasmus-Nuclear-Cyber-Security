@@ -1,0 +1,51 @@
+[
+  {
+    "key": "IAEA2024",
+    "author": "International Atomic Energy Agency (IAEA)",
+    "title": "Publications and guidance on computer/information security and nuclear security",
+    "year": "2024",
+    "url": "https://www.iaea.org/resources"
+  },
+  {
+    "key": "NIST80082",
+    "author": "National Institute of Standards and Technology (NIST)",
+    "title": "SP 800-82 Guide to ICS Security and related guidance",
+    "year": "2015",
+    "url": "https://csrc.nist.gov/publications/detail/sp/800-82/rev-2/final"
+  },
+  {
+    "key": "ISA62443",
+    "author": "ISA / IEC",
+    "title": "IEC 62443 series — industrial automation and control systems security standards",
+    "year": "2020",
+    "url": "https://www.isa.org/isa62443"
+  },
+  {
+    "key": "ENISA2024",
+    "author": "ENISA",
+    "title": "Technical analyses of ICS malware and attack trends",
+    "year": "2024",
+    "url": "https://www.enisa.europa.eu/topics/csirt-cert-services/ics-security"
+  },
+  {
+    "key": "StuxnetAnalysis",
+    "author": "Industry Security Researchers",
+    "title": "Technical analyses and dossiers on Stuxnet, Industroyer and other ICS malware",
+    "year": "2011-2017",
+    "url": "https://www.symantec.com/security-center/writeup/2010-071400-3123-99"
+  },
+  {
+    "key": "AcademicICS",
+    "author": "Academic Literature",
+    "title": "ICS security, cyber-physical systems safety and supply-chain risk",
+    "year": "2015-2023",
+    "url": "https://scholar.google.com/scholar?q=ICS+security+cyber-physical+safety"
+  },
+  {
+    "key": "SharePointSupplyChain",
+    "author": "U.S. Cybersecurity Incident Reports",
+    "title": "2025 U.S. nuclear supply chain incident (SharePoint vulnerability)",
+    "year": "2025",
+    "url": "https://www.cisa.gov/news-events/alerts"
+  }
+]

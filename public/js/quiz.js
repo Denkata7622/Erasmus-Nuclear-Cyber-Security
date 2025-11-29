@@ -195,12 +195,27 @@ function handleNext() {
     // Check if answer is correct
     if (chosen !== undefined && parseInt(chosen) === questions[index].correct) {
         score++;
+        document.getElementById('btnStart').disabled = true;
+        document.getElementById('quiz').innerHTML =
+          `<h3>Correct! Your current score: ${score}/${index + 1}</h3>`; 
     }
     else if (chosen === undefined)
     {
+        document.getElementById('btnStart').disabled = true;
+        document.getElementById('quiz').innerHTML =
+          `<h3>Empty Answer Detected! </h3>
+            <h4>...Continuing Forward Anyway...</h4>`; 
+
         // For now nothing
         // Possible Warning and inability to progress further if answer is empty
         // No need as of now
+    }
+    else {
+        // Incorrect answer chosen
+        document.getElementById('btnStart').disabled = true;
+        document.getElementById('quiz').innerHTML =
+          `<h3>Incorrect! The correct answer was: ${questions[index].answers[questions[index].correct]}.</h3>
+            <h4>Your current score: ${score}/${index + 1}</h4>`;
     }
 
     // increase question number by 1
@@ -208,12 +223,17 @@ function handleNext() {
 
     // Check if the User has reached the end of the quiz
     if (index < questions.length) {
-        showQuestion();
+        setTimeout(() => {
+            // Show next question after 3 seconds
+            showQuestion();
+            document.getElementById('btnStart').disabled = false;
+        }, 3000);
     } else {
         document.getElementById("btnStart").style.display = "none";
         document.getElementById("timerFill").style.display = "none";
         document.getElementById('quiz').innerHTML =
-            `<h3>Quiz completed! Your score: ${score}/${questions.length}</h3>`;
+            `<h3>Quiz completed! Your score: ${score}/${questions.length}</h3>
+              <h5>Please refresh the page to try again.</h5>`; 
     }
 }
 
