@@ -1,3 +1,5 @@
+// TODO : Change 1, 4 and 8 (Error 404) to actual sources when available
+
 // Sources directly in citations.js script so as to avoid protocol issues
 const sources = [
   {
