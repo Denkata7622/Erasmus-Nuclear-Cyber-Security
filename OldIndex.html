@@ -1,0 +1,261 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuclear CyberSecurity</title>
+  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+  <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body class="body-cyber">
+    <!-- Navbar -->
+  <nav class="navbar navbar-cyber navbar-expand-lg py-3">
+    <div class="container">
+      <strong><a class="navbar-brand text-warning" href="#">Nuclear Cybersecurity</a></strong>
+      <button class="navbar-toggler border border-warning" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-warning"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto text-center">
+          <li class="nav-item m-2"><a class="btn btn-outline-warning w-100" href="#Introduction">Introduction</a></li>
+          <li class="nav-item m-2"><a class="btn btn-outline-warning w-100" href="#Operation">Operation</a></li>
+          <li class="nav-item m-2"><a class="btn btn-outline-warning w-100" href="#Breaches">Breaches</a></li>
+          <li class="nav-item m-2"><a class="btn btn-outline-warning w-100" href="#Sources">Sources</a></li>
+          <li class="nav-item m-2"><a class="btn btn-outline-warning w-100" href="#Quiz">Quiz</a></li>
+          <li class="nav-item m-2"><a class="btn btn-outline-warning w-100" href="#Glossary">Glossary</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Main Body -->
+    <div class="container">
+
+      <!-- COOL Animated line -->
+      <div class="mt-5 line-container text-center">
+        <hr class="horizontal-line line-cyber">
+        <div class="vertical-line line-cyber"></div>
+      </div>
+
+      <!-- Main Section -->
+      <div id="Introduction" class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Title -->
+            <h1 class="mb-4"> Nuclear Cybersecurity</h1>
+            <p class="mb-4">Cybersecurity is the practice of keeping our digital devices and online systems safe from people who want to break into them or cause damage. Just like we protect our homes with keys, locks, and alarms, computers also need protection. Every device that connects to the internet — like phones, laptops, tablets, smart TVs, and even machines in big factories — can be attacked if it isn’t protected.</p>
+            <p class="mb-4">Attackers usually try to do three things: steal information, break something so it stops working, or secretly take control of a device without the owner knowing. They can do this by tricking people into opening dangerous files, creating viruses that spread through networks, or guessing weak passwords. Sometimes they don’t even need a person — they can target a whole system automatically.</p>
+            <p class="mb-4">The goal of cybersecurity is to stop these things from happening. It uses tools and rules that make devices harder to break into, such as strong passwords, updated software, firewalls, and antivirus programs. It also teaches people how to recognize dangerous messages or suspicious behavior online. When all of this works together, it keeps our data private, our devices working properly, and our digital lives safe.</p>
+            <p class="mb-5">In simple terms: cybersecurity is like having good locks, good habits, and good guards for everything we use online, so that attackers can’t trick us, steal from us, or damage important systems.</p>
+
+            <hr class="border border-warning border-2 opacity-50 my-5">
+
+            <h5>Keep three simple goals in mind (the CIA triad tuned for OT):</h5>
+            <ul class="mb-5">
+              <li>Confidentiality — protect secrets (designs, credentials). <span class="citation" data-cite="IAEA2020"></span></li>
+              <li>Integrity — ensure commands and data are correct (a corrupted command must be detected). <span class="citation" data-cite="IAEA2020"></span></li>
+              <li>Availability — systems must be available when needed (an unavailable alarm can be deadly). <span class="citation" data-cite="IAEA2020"></span></li>
+            </ul>
+            <h5>Quick contrasts that matter:</h5>
+            <ul class="mb-4">
+              <li>OT vs IT: OT (Operational Technology) controls physical processes and values predictable timing and safety over convenience. IT security tools often need adaptation for OT. <span class="citation" data-cite="NIST800-82r3"></span></li>
+              <li>Air-gap is a strong control but not a guarantee: maintenance, USBs, vendor access or supply-chain links can bridge isolated networks — hence strict procedures matter. The Stuxnet case proved air-gaps can be bypassed. <span class="citation" data-cite="Stuxnet2010"></span></li>
+            </ul>
+            <p>Nuclear plants and weapons rely heavily on computers. Power plants use control rods, coolant pumps, and sensors managed by ICS. Military systems use computers for launch control, early warning, and secure communication. Any cyber failure in these environments can have consequences far beyond an ordinary IT outage.  </p>
+          </div>
+          <div class="col-md-6"></div>
+
+        </div>
+      </div>
+
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <!-- Operation Section -->
+      <div id="Operation" class="container">
+            <h1 class="w-75 mb-4">Operation — how nuclear digital systems are built and where they break</h1>
+            <h4>Core components & how they interact</h4>
+            <ul>
+              <li>Sensors & actuators: measure and change physical variables (temperature, flow, valve position). <span class="citation" data-cite="NIST800-82r3"></span></li>
+              <li>PLCs / RTUs / DCS: programmable logic controllers and distributed control systems that run control logic in real time. <span class="citation" data-cite="IEC62443"></span></li>
+              <li>HMI / SCADA / Historian: operator screens, supervisory software and time-series databases that show trends and log events.</li>
+              <li>Engineering workstations: used for designing and uploading control logic — powerful pivot points if compromised. <span class="citation" data-cite="MITRE-ICS"></span></li>
+            </ul>
+            <h4>Common protocols (and their legacy issues)</h4>
+            <p>Many OT protocols were designed decades ago and lack built-in authentication or encryption (e.g., Modbus, legacy DNP3 variants). <span class="citation" data-cite="NIST800-82r3"></span> Modern secure standards (OPC UA, secure DNP3) exist but adoption is mixed; bridging old and new protocols is a frequent source of vulnerable translation points. <span class="citation" data-cite="IEC62443"></span></p>
+            <h4>Typical network architecture</h4>
+            <p>Operators use layered zoning (Purdue / ISA-IEC zone models): field devices (Level 0–1), control systems (Level 2), supervisory systems (Level 3), and business IT (Level 4–5). <span class="citation" data-cite="IEC62443"></span> DMZs and data diodes mediate flows. Good segmentation reduces lateral movement. <span class="citation" data-cite="CISA-ICS"></span></p>
+            <h4>Where designs fail</h4>
+            <ul>
+              <li>Unpatched legacy firmware and fixed credentials.</li>
+              <li>Engineering laptops and vendor remote access with weak governance.</li>
+              <li>Overly permissive firewall/VLAN rules or flat networks.</li>
+              <li>Lack of OT-aware monitoring (IT tools alone generate too many false positives).</li>
+            </ul>
+      </div>
+
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <!-- Breaches Section -->
+      <div id="Breaches" class="container">
+            <h1>Breaches — tactics, case studies and what they teach us</h1>
+            <h4>Typical attacker lifecycle (Tactics, Techniques, Procedures)</h4>
+            <ol>
+              <li>Reconnaissance: collect network maps, vendor details, personnel info.</li>
+              <li>Initial access: phishing, vulnerable public services, infected removable media, or vendor compromise.</li>
+              <li>Establish persistence & move laterally: drop backdoors and reach for engineering credentials.</li>
+              <li>Manipulate or sabotage OT: alter PLC logic, inject false sensor readings, disable alarms.</li>
+              <li>Hide tracks: tamper with logs, use stealth techniques.</li>
+            </ol>
+            <h5 class="mb-4">MITRE ATT&CK for ICS is a practical taxonomy defenders use to map and anticipate these behaviours. <span class="citation" data-cite="MITRE-ICS"></span></h5>
+
+            <h4>Short narratives (readable, memorable case boxes)</h4>
+            <p>Stuxnet (brief story): operators at an enrichment plant saw nothing unusual while centrifuges were being driven to destructive speeds. Stuxnet reached the site on removable media, found specific Siemens control software, changed PLC logic and falsified instrumentation so engineers didn't notice until physical damage had already occurred. <span class="citation" data-cite="Stuxnet2010"></span> <span class="citation" data-cite="Langner2013"></span> Lesson: targeted malware can combine IT exploits and PLC manipulation to produce physical effects.</p>
+            <p>Industroyer / grid malware (brief story): attackers wrote code speaking electrical-grid control protocols, issued legitimate-looking switch commands and caused system failures. <span class="citation" data-cite="Industroyer"></span> Lesson: bespoke malware that understands OT protocols can cause service outages and requires protocol-aware detection.</p>
+            <p>Supply-chain / SharePoint example (2025 U.S. nuclear supply chain incident): enterprise software vulnerabilities in widely-used platforms (SharePoint) were exploited to access vendor and government networks, showing how IT defects can lead to access to sensitive industrial supply chains. <span class="citation" data-cite="CISA-ICS"></span> Lesson: IT vulnerabilities, even when they don't touch controllers directly, are a real OT risk.</p>
+      </div>
+
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <!-- Defence Section -->
+      <div id="Defence" class="container">
+            <h1 class="mb-4">Defence — layered measures that actually reduce risk (practical & prioritised)</h1>
+            <h4>Quick wins (high ROI, easy to communicate to decision-makers)</h4>
+            <ul>
+              <li>Enforce network segmentation and remove unnecessary connections between IT and OT. <span class="citation" data-cite="IEC62443"></span></li>
+              <li>Block autorun and apply strict scanning/whitelisting for removable media. <span class="citation" data-cite="CISA-ICS"></span></li>
+              <li>Harden vendor access: jump hosts, MFA, time-limited sessions with logging. <span class="citation" data-cite="NIST800-82r3"></span></li>
+              <li>Ensure trusted offline backups of PLC/DCS logic and configurations.</li>
+            </ul>
+
+            <h4>Core technical controls (OT-specific)</h4>
+            <ul>
+                <li>Whitelisting of executables and firmware signing. <span class="citation" data-cite="IEC62443"></span></li>
+                <li>OT-aware IDS/IPS with parsers for Modbus/DNP3/OPC UA and anomaly detection for unusual command timing. <span class="citation" data-cite="NIST800-82r3"></span></li>
+                <li>Data diodes for high-integrity one-way transfers.</li>
+                <li>Secure boot, measured boot and HSM/TPM for protecting keys and firmware authenticity.</li>
+            </ul>
+
+            <h4>Organisational & engineering practices</h4>
+            <ul>
+                <li>Cyber PHA/Cyber HAZOP — treat cyber faults as safety hazards and feed them into engineering design and change control. <span class="citation" data-cite="IEC62443"></span></li>
+                <li>Vendor & supply-chain governance — security requirements in contracts, SBOMs, and secure update pipelines. <span class="citation" data-cite="CISA-ICS"></span></li>
+                <li>Integrated incident-response between cyber and plant-safety teams (safety first; forensics second when safe).</li>
+                <li>Regular exercises (tabletops, red/blue, full-scale drills) that include engineers, operators and regulators. <span class="citation" data-cite="IAEA2020"></span></li>
+            </ul>
+
+            <p>
+              Cybersecurity in nuclear facilities protects ICS and SCADA systems 
+              <span class="citation" data-cite="IAEA2021"></span> 
+              and follows layered defense principles 
+              <span class="citation" data-cite="NIST800-82r3"></span> 
+              <span class="citation" data-cite="IEC62443"></span>.
+            </p>
+
+      </div>
+
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <!-- Sources Section -->
+      <div id="Sources" class="container">
+            <h1 class="mb-4">Sources (authoritative, not quoted verbatim)</h1>
+            <ul>
+              <!-- This will be automatically populated by citations.js -->
+            </ul>
+      </div>
+
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <!-- Quiz Section -->
+      <div id="Quiz" class="container">
+        <div class="card card-cyber p-3">
+          <div id="timer" class="">
+              <div id="timeLeft"></div>
+                <div id="timerBar" class="my-4">
+                  <div id="timerFill" class="width-50"></div>
+                </div>
+          </div>
+          <div id="quiz" class="mb-4">
+              <h5>Welcome to the Nuclear CyberSecurity Quiz!</h5>
+              <p>Test your knowledge about nuclear cybersecurity by answering the following questions. Click "Next" to begin.</p>
+          </div>
+          <button id="btnStart" class="btn btn-cyber">Next</button>
+        </div>
+      </div>
+            
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <div id="Glossary" class="container">
+        <h1 class="mb-4">Glossary — So even people with close-to-zero knowledge of terminology can understand</h1>
+        <ul>
+          <li><b class="text-warning">Asset Inventory:</b>  a complete list of hardware, software, firmware and services — the first step to secure an environment.</li>
+          <li><b class="text-warning">Availability:</b> the guarantee that a system functions when required (especially critical for safety systems).</li>
+          <li><b class="text-warning">Byzantine fault:</b> a class of faults where components may present inconsistent or malicious behaviour; relevant for designing controllers and distributed safety logic.</li>
+          <li><b class="text-warning">Command & Control (C2):</b> infrastructure attackers use to control malware and exfiltrate data.</li>
+          <li><b class="text-warning">Cross-Zone Pivoting / Lateral Movement:</b> techniques used by attackers to move from the enterprise network toward OT assets.  </li>
+          <li><b class="text-warning">Data Diode:</b> a hardware device allowing strictly one-way data flow; used to push telemetry out of protected zones without permitting inbound traffic.</li>
+          <li><b class="text-warning">Defense-in-Depth:</b> layered protection strategy combining technical, procedural and physical controls.</li>
+          <li><b class="text-warning">Determinism (in OT):</b> the requirement that controllers and devices respond in predictable timeframes — differs from typical IT expectations.</li>
+          <li><b class="text-warning">EDR (Endpoint Detection & Response):</b> endpoint tooling that detects malicious activity and supports investigation — OT variants exist that are tailored to controllers and engineering systems.</li>
+          <li><b class="text-warning">HSM (Hardware Security Module):</b> secure hardware for key storage and cryptographic operations (useful for signing firmware, certificates).</li>
+          <li><b class="text-warning">IEC 62443:</b> international standard suite that describes security requirements for industrial automation.</li>
+          <li><b class="text-warning">Integrity:</b> assurance that data or commands have not been altered.</li>
+          <li><b class="text-warning">MITRE ATT&CK for ICS:</b> a knowledge base of adversary tactics, techniques and procedures mapped to ICS environments.</li>
+          <li><b class="text-warning">Microsegmentation:</b> fine-grained network controls that limit communications at the workload or device level.</li>
+          <li><b class="text-warning">Observer / Historian:</b> systems that store time-series process data for analysis and auditing.</li>
+          <li><b class="text-warning">OPC UA:</b> a modern industrial communication standard supporting security features (encryption, authentication).</li>
+          <li><b class="text-warning">Patch Management (OT):</b> controlled, scheduled application of updates with pre-validation to avoid impacting process safety.</li>
+          <li><b class="text-warning">Protocol Whitelisting / Deep Protocol Inspection:</b> allow-list of valid command types and payload ranges; detect anomalous or out-of-band commands.</li>
+          <li><b class="text-warning">Recovery Time Objective (RTO) / Recovery Point Objective (RPO):</b> service-level goals defining acceptable downtime and data loss during recovery.</li>
+          <li><b class="text-warning">Safe State / Fail-Safe:</b> design principle ensuring devices move to a safe condition when control is lost.</li>
+          <li><b class="text-warning">Secure Boot / Measured Boot:</b> mechanisms to ensure firmware and OS components are genuine and untampered, using cryptographic validation.</li>
+          <li><b class="text-warning">Supply-Chain Security:</b> controls to ensure hardware/firmware/software from vendors is trustworthy (code signing, provenance, SBOMs).</li>
+          <li><b class="text-warning">Threat Actor / APT (Advanced Persistent Threat):</b> organised attackers, often nation-state linked, who run long duration campaigns.</li>
+          <li><b class="text-warning">Zero-Trust:</b> a security posture that assumes no implicit trust — every connection and request must be authenticated and authorized.</li>
+        </ul>
+        <style>
+
+        </style>
+      </div>
+
+      <hr class="border border-warning border-2 opacity-50 my-5">
+
+      <!-- Footer -->
+      <footer class="mt-5 pt-5 pb-4 border-top border-warning">
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <h5 class="text-warning mb-3">About This Resource</h5>
+            <p class="text-light">Nuclear cybersecurity protects critical facilities, systems, and data from digital threats. As nuclear operations become increasingly digitized, robust cybersecurity is essential to prevent disruptions and safeguard nuclear materials.</p>
+            <p>&copy; Cyber attack icons created by Andrean Prabowo - Flaticon</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="text-warning mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2"><a href="#Introduction" class="text-light text-decoration-none">Introduction</a></li>
+              <li class="mb-2"><a href="#Operation" class="text-light text-decoration-none">Operation</a></li>
+              <li class="mb-2"><a href="#Breaches" class="text-light text-decoration-none">Breaches</a></li>
+              <li class="mb-2"><a href="#Defence" class="text-light text-decoration-none">Defence</a></li>
+              <li class="mb-2"><a href="#Glossary" class="text-light text-decoration-none">Glossary</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h5 class="text-warning mb-3">Key Standards</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2 text-light"><small>IAEA Nuclear Security Guidelines</small></li>
+              <li class="mb-2 text-light"><small>NIST 800-82 Rev 3 (ICS Security)</small></li>
+              <li class="mb-2 text-light"><small>IEC 62443 (Industrial Automation)</small></li>
+              <li class="mb-2 text-light"><small>MITRE ATT&CK for ICS</small></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="border border-warning opacity-25 my-4">
+        <div class="text-center">
+          <p class="text-light mb-0"><small>&copy; 2024 Nuclear Cybersecurity Education. For informational purposes only.</small></p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/citations.js"></script>
+    <script src="./js/quiz.js"></script>
+  </body>
+</html>
